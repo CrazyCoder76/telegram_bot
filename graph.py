@@ -42,7 +42,7 @@ graph = graph_builder.compile(
     checkpointer = memory
 )
 
-async def generate_response(message, thread_id):
+def generate_response(message, thread_id):
     config = {"configurable": {"thread_id": thread_id}}
     events = graph.stream(
         {
@@ -65,5 +65,5 @@ async def generate_response(message, thread_id):
 
     return answer
 
-async def generate_intro():
+def generate_intro():
     return chat_utils.generate_intro_message()
